@@ -1,0 +1,49 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "aidenzepp",
+  "homepage": "https://github.com/aidenzepp/ui",
+  "items": [
+    {
+      "name": "frame",
+      "type": "registry:ui",
+      "title": "Frame",
+      "description": "A tinted surface with a header, a raised panel and a footer. Children respond to the frame's own width through the @container/frame container (@sm/frame:, @max-lg/frame:, ...). Ships the two tokens it needs beyond stock shadcn (fill-1 and shadow-2xs, SortUI values) so it works without the SortUI theme.",
+      "author": "Aiden Zepp",
+      "dependencies": ["cn"],
+      "files": [
+        {
+          "path": "registry/frame/frame.tsx",
+          "type": "registry:ui"
+        }
+      ],
+      "cssVars": {
+        "theme": {
+          "color-fill-1": "var(--fill-1)",
+          "shadow-2xs": "0 1px 1px -1px oklch(0.371 0 0 / 6%), 0 2px 2px -1px oklch(0.371 0 0 / 3%)"
+        },
+        "light": {
+          "fill-1": "oklch(0.556 0 0 / 5%)"
+        },
+        "dark": {
+          "fill-1": "oklch(1 0 0 / 5%)"
+        }
+      },
+      "categories": ["layout", "surface"]
+    },
+    {
+      "name": "frame-overflow",
+      "type": "registry:hook",
+      "title": "Frame overflow",
+      "description": "useFrameOverflow: lets a Frame header collapse low-priority actions (hidden by @container/frame queries) into its overflow menu. Pair with frame; menu primitives are your own.",
+      "author": "Aiden Zepp",
+      "files": [
+        {
+          "path": "registry/frame-overflow/use-frame-overflow.ts",
+          "type": "registry:hook"
+        }
+      ],
+      "docs": "Mark inline groups with data-overflow=\"name\" and a frame container query such as @max-lg/frame:hidden, put triggerRef on the menu trigger and onOpenChange on the menu, then render hidden.name actions inside the menu.",
+      "categories": ["hook"]
+    }
+  ]
+}

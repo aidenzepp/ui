@@ -1,0 +1,19 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "frame-overflow",
+  "title": "Frame overflow",
+  "author": "Aiden Zepp",
+  "description": "useFrameOverflow: lets a Frame header collapse low-priority actions (hidden by @container/frame queries) into its overflow menu. Pair with frame; menu primitives are your own.",
+  "files": [
+    {
+      "path": "registry/frame-overflow/use-frame-overflow.ts",
+      "content": "\"use client\"\n\nimport * as React from \"react\"\n\n// Collapsing header actions for Frame.\n//\n// Mark each low-priority inline group with data-overflow=\"<name>\" and hide it with a\n// frame container query (e.g. @max-lg/frame:hidden). Put the trigger ref on the \"…\"\n// menu trigger inside the same Frame and pass onOpenChange to the menu. When the menu\n// opens, `hidden[name]` says which groups the container queries collapsed, so the\n// menu can render those actions instead.\nfunction useFrameOverflow<const Name extends string>(names: readonly Name[]) {\n  const triggerRef = React.useRef<HTMLButtonElement>(null)\n  const key = names.join(\"\\u0000\")\n  const initial = React.useMemo(\n    () => Object.fromEntries(names.map((name) => [name, false])) as Record<Name, boolean>,\n    // eslint-disable-next-line react-hooks/exhaustive-deps\n    [key]\n  )\n  const [hidden, setHidden] = React.useState(initial)\n\n  const onOpenChange = React.useCallback(\n    (open: boolean) => {\n      const frame = triggerRef.current?.closest(\"[data-slot=frame]\")\n      if (!open || !frame) return\n      const next = { ...initial }\n      for (const name of Object.keys(initial) as Name[]) {\n        const el = frame.querySelector<HTMLElement>(`[data-overflow=\"${CSS.escape(name)}\"]`)\n        next[name] = !el || !(el.checkVisibility?.() ?? el.getClientRects().length > 0)\n      }\n      setHidden(next)\n    },\n    [initial]\n  )\n\n  const anyHidden = (Object.values(hidden) as boolean[]).some(Boolean)\n  return { triggerRef, hidden, anyHidden, onOpenChange }\n}\n\nexport { useFrameOverflow }\n",
+      "type": "registry:hook"
+    }
+  ],
+  "docs": "Mark inline groups with data-overflow=\"name\" and a frame container query such as @max-lg/frame:hidden, put triggerRef on the menu trigger and onOpenChange on the menu, then render hidden.name actions inside the menu.",
+  "categories": [
+    "hook"
+  ],
+  "type": "registry:hook"
+}

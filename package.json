@@ -1,0 +1,10 @@
+{
+  "name": "aidenzepp-ui-registry",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "build": "shadcn build",
+    "serve": "npx --yes serve public -l 4555 --cors"
+  },
+  "devDependencies": { "shadcn": "4.22.1" }
+}
