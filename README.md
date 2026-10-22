@@ -4,7 +4,7 @@ Own components only (MIT). Never add SortUI Pro or any other paid code here.
 
 | item | type | installs |
 | --- | --- | --- |
-| `frame` | registry:ui | `components/ui/frame.tsx` (+ npm `cn`, + tokens `fill-1` light/dark, `--color-fill-1`, `--shadow-2xs`) |
+| `frame` | registry:ui | `components/ui/frame.tsx` (+ shadcn `utils` for `cn`, + tokens `fill-1` light/dark, `--color-fill-1`, `--shadow-2xs`) |
 | `frame-overflow` | registry:hook | `hooks/use-frame-overflow.ts` (`useFrameOverflow`) |
 
 ## Use
