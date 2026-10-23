@@ -38,8 +38,6 @@ export default defineConfig({
       "func-style": "off",
       // Same convention for components: `function Frame()` rather than `const Frame = () =>`.
       "react/function-component-definition": "off",
-      // Generic key records (Record<Name, boolean>) need assertions; anti-slop still demands a SAFETY comment on each.
-      "typescript/no-unsafe-type-assertion": "off",
     },
   },
 });

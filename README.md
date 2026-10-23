@@ -21,6 +21,10 @@ components.json:
 npx shadcn@latest add @aidenzepp/frame @aidenzepp/frame-overflow
 ```
 
+`useFrameOverflow(["icons"])` returns `{ hidden, onOpenChange, triggerRef }`. `hidden` is a
+`ReadonlySet` of the group names the frame's container queries hid when the menu last opened:
+render `hidden.has("icons")` actions in the menu and show a separator when `hidden.size > 0`.
+
 Zero-config alternative once the repo is public on GitHub (reads root registry.json):
 `npx shadcn@latest add aidenzepp/ui/frame`
 

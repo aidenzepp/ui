@@ -42,7 +42,7 @@
           "type": "registry:hook"
         }
       ],
-      "docs": "Mark inline groups with data-overflow=\"name\" and a frame container query such as @max-lg/frame:hidden, put triggerRef on the menu trigger and onOpenChange on the menu, then render hidden.name actions inside the menu.",
+      "docs": "Mark inline groups with data-overflow=\"name\" and a frame container query such as @max-lg/frame:hidden, put triggerRef on the menu trigger and onOpenChange on the menu, then render the actions for each name where hidden.has(name) inside the menu.",
       "categories": ["hook"]
     }
   ]

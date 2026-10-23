@@ -36,7 +36,7 @@ const iconActions = [
 ];
 
 export function OverflowFrame({ id }: { id?: string }) {
-  const { triggerRef, hidden, anyHidden, onOpenChange } = useFrameOverflow(["icons"]);
+  const { triggerRef, hidden, onOpenChange } = useFrameOverflow(["icons"]);
 
   return (
     <Frame id={id}>
@@ -59,14 +59,14 @@ export function OverflowFrame({ id }: { id?: string }) {
               <EllipsisIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-44">
-              {hidden.icons &&
+              {hidden.has("icons") &&
                 iconActions.map(({ label, icon: Icon }) => (
                   <DropdownMenuItem key={label}>
                     <Icon />
                     {label}
                   </DropdownMenuItem>
                 ))}
-              {anyHidden && <DropdownMenuSeparator />}
+              {hidden.size > 0 && <DropdownMenuSeparator />}
               <DropdownMenuItem>
                 <CopyIcon />
                 Duplicate
