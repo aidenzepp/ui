@@ -1,7 +1,15 @@
-import { Button } from "@/components/ui/button"
-import { Switch } from "@/components/ui/switch"
-import { Frame, FrameActions, FrameDescription, FrameFooter, FrameHeader, FramePanel, FrameTitle } from "@/components/ui/frame"
-import { OverflowFrame } from "./overflow-frame"
+import { Button } from "@/components/ui/button";
+import { Switch } from "@/components/ui/switch";
+import {
+  Frame,
+  FrameActions,
+  FrameDescription,
+  FrameFooter,
+  FrameHeader,
+  FramePanel,
+  FrameTitle,
+} from "@/components/ui/frame";
+import { OverflowFrame } from "./frame-overflow-example";
 
 export default function Page() {
   return (
@@ -10,12 +18,14 @@ export default function Page() {
         <FrameHeader>
           <FrameTitle>Notifications</FrameTitle>
           <FrameActions>
-            <Button variant="ghost" size="sm">Reset</Button>
+            <Button variant="ghost" size="sm">
+              Reset
+            </Button>
           </FrameActions>
         </FrameHeader>
         <FramePanel className="min-h-48">
-          <label className="flex items-center gap-3 text-sm">
-            <Switch defaultChecked /> Email me a weekly digest
+          <label htmlFor="weekly-digest" className="flex items-center gap-3 text-sm">
+            <Switch id="weekly-digest" defaultChecked /> Email me a weekly digest
           </label>
         </FramePanel>
         <FrameFooter>
@@ -28,8 +38,10 @@ export default function Page() {
       </Frame>
       <div className="flex flex-col gap-8">
         <OverflowFrame id="wide" />
-        <div style={{ width: 340 }}><OverflowFrame id="narrow" /></div>
+        <div style={{ width: 340 }}>
+          <OverflowFrame id="narrow" />
+        </div>
       </div>
     </main>
-  )
+  );
 }

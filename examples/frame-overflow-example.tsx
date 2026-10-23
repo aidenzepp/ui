@@ -1,27 +1,43 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { CopyIcon, DownloadIcon, EllipsisIcon, HistoryIcon, Share2Icon, Trash2Icon } from "lucide-react"
+import * as React from "react";
+import {
+  CopyIcon,
+  DownloadIcon,
+  EllipsisIcon,
+  HistoryIcon,
+  Share2Icon,
+  Trash2Icon,
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-import { Frame, FrameActions, FrameDescription, FrameFooter, FrameHeader, FramePanel, FrameTitle } from "@/components/ui/frame"
-import { useFrameOverflow } from "@/hooks/use-frame-overflow"
+} from "@/components/ui/dropdown-menu";
+import {
+  Frame,
+  FrameActions,
+  FrameDescription,
+  FrameFooter,
+  FrameHeader,
+  FramePanel,
+  FrameTitle,
+} from "@/components/ui/frame";
+import { useFrameOverflow } from "@/hooks/use-frame-overflow";
 
 const iconActions = [
-  { label: "Share", icon: Share2Icon },
-  { label: "Download", icon: DownloadIcon },
-  { label: "History", icon: HistoryIcon },
-]
+  { icon: Share2Icon, label: "Share" },
+  { icon: DownloadIcon, label: "Download" },
+  { icon: HistoryIcon, label: "History" },
+];
 
 export function OverflowFrame({ id }: { id?: string }) {
-  const { triggerRef, hidden, anyHidden, onOpenChange } = useFrameOverflow(["icons"])
+  const { triggerRef, hidden, anyHidden, onOpenChange } = useFrameOverflow(["icons"]);
+
   return (
     <Frame id={id}>
       <FrameHeader>
@@ -36,7 +52,10 @@ export function OverflowFrame({ id }: { id?: string }) {
           </div>
           <Button size="sm">Deploy</Button>
           <DropdownMenu onOpenChange={onOpenChange}>
-            <DropdownMenuTrigger ref={triggerRef} render={<Button variant="ghost" size="icon-sm" aria-label="More" />}>
+            <DropdownMenuTrigger
+              ref={triggerRef}
+              render={<Button variant="ghost" size="icon-sm" aria-label="More" />}
+            >
               <EllipsisIcon />
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-44">
@@ -66,7 +85,10 @@ export function OverflowFrame({ id }: { id?: string }) {
           ["Branch", "main"],
           ["Last deploy", "2 min ago by Sterling"],
         ].map(([k, v]) => (
-          <div key={k} className="flex justify-between gap-4 border-b border-border px-4 py-3 last:border-b-0">
+          <div
+            key={k}
+            className="flex justify-between gap-4 border-b border-border px-4 py-3 last:border-b-0"
+          >
             <span className="text-muted-foreground">{k}</span>
             <span className="min-w-0 truncate">{v}</span>
           </div>
@@ -80,5 +102,5 @@ export function OverflowFrame({ id }: { id?: string }) {
         </FrameActions>
       </FrameFooter>
     </Frame>
-  )
+  );
 }
