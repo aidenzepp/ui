@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "jsx": "react-jsx",
+    "strict": true,
+    "skipLibCheck": true,
+    "noEmit": true,
+    "types": [],
+    // Resolve the aliases the registry files are installed under.
+    // Registry items map to their source; shadcn primitives they lean on are typed stubs.
+    "paths": {
+      "@/components/ui/frame": ["./registry/frame/frame.tsx"],
+      "@/hooks/use-frame-overflow": ["./registry/frame-overflow/use-frame-overflow.ts"],
+      "@/*": ["./stubs/*"]
+    }
+  },
+  "include": ["registry", "examples", "stubs", "vite.config.ts"]
+}
